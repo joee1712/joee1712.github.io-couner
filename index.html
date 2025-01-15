@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.3/lottie_svg.min.js"></script>
+    <title>Counter</title>
+    <style>
+        .background-image {
+            background-image: url('https://i.postimg.cc/nL2MsQ6L/a363f55538ba6e3b36aa04064bb72f8d.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body style="font-family: 'Comic Neue';" class="relative">
+    <div class="background-image w-full min-h-screen z-0 relative">
+        <!-- BACKGROUND -->
+        <div class="absolute top-0 w-full h-full flex justify-center items-center p-4">
+            <!-- COUNTER -->
+            <div class="flex bg-neutral-100 gap-5 relative border-2 z-10 border-black flex-col px-5 pb-3 shadow-md pt-9 rounded-md max-w-full mx-4">
+                <!-- GIFS -->
+                <div class="absolute -top-10 sm:-top-20 -left-10 sm:-left-20 w-16 sm:w-24 md:w-32 lg:w-44">
+                    <img class="w-full -rotate-6" src="https://media.tenor.com/dg7Th23TzFUAAAAi/cat_-vodk.gif" alt="Cat GIF">
+                </div>
+                <div class="absolute -bottom-3 -right-8 sm:-right-20 w-16 sm:w-24 md:w-32 lg:w-44">
+                    <img class="w-full" src="https://media.tenor.com/LrSL7XDKVbgAAAAi/peachcat-cat.gif" alt="Peach Cat GIF">
+                </div>
+                <div class="absolute -top-[58px] sm:-top-24 md:top-[-8rem] z-0 right-4 sm:right-8 md:right-16 w-16 sm:w-20 md:w-24 lg:w-36">
+                    <img class="w-full" src="https://media.tenor.com/A5VhCveZ_ygAAAAi/peach-and-goma-peach-goma.gif" alt="Peach and Goma GIF">
+                </div>
+                <div class="absolute -bottom-16 sm:-bottom-24 md:-bottom-32 lg:-bottom-48 z-0 left-4 sm:left-8 md:left-16 w-16 sm:w-20 md:w-24 lg:w-40">
+                    <img class="w-full" src="https://media.tenor.com/ewJrc9fZeaQAAAAi/prots-masaj.gif" alt="Prots Masaj GIF">
+                </div>
+
+                <!-- DATE COUNTER -->
+                <div class="flex flex-wrap justify-center gap-5" id="myCountdown">
+                    <div class="bg-transparent border-2 border-black rounded-md w-24 sm:w-32 md:w-40 h-24 sm:h-32 md:h-52 flex justify-center items-center flex-col gap-3 sm:gap-5 md:gap-10">
+                        <h1 id="years" class="text-3xl sm:text-4xl md:text-6xl font-bold">0</h1>
+                        <p class="font-bold text-sm sm:text-lg md:text-xl text-red-700">Year</p>
+                    </div>
+                    <div class="bg-transparent border-2 border-black rounded-md w-24 sm:w-32 md:w-40 h-24 sm:h-32 md:h-52 flex justify-center items-center flex-col gap-3 sm:gap-5 md:gap-10">
+                        <h1 id="months" class="text-3xl sm:text-4xl md:text-6xl font-bold">0</h1>
+                        <p class="font-bold text-sm sm:text-lg md:text-xl text-red-700">Months</p>
+                    </div>
+                    <div class="bg-transparent border-2 border-black rounded-md w-24 sm:w-32 md:w-40 h-24 sm:h-32 md:h-52 flex justify-center items-center flex-col gap-3 sm:gap-5 md:gap-10">
+                        <h1 id="days" class="text-3xl sm:text-4xl md:text-6xl font-bold">0</h1>
+                        <p class="font-bold text-sm sm:text-lg md:text-xl text-red-700">Days</p>
+                    </div>
+                    <div class="bg-transparent border-2 border-black rounded-md w-24 sm:w-32 md:w-40 h-24 sm:h-32 md:h-52 flex justify-center items-center flex-col gap-3 sm:gap-5 md:gap-10">
+                        <h1 id="hours" class="text-3xl sm:text-4xl md:text-6xl font-bold">0</h1>
+                        <p class="font-bold text-sm sm:text-lg md:text-xl text-red-700">Hours</p>
+                    </div>
+                    <div class="bg-transparent border-2 border-black rounded-md w-24 sm:w-32 md:w-40 h-24 sm:h-32 md:h-52 flex justify-center items-center flex-col gap-3 sm:gap-5 md:gap-10">
+                        <h1 id="minutes" class="text-3xl sm:text-4xl md:text-6xl font-bold">0</h1>
+                        <p class="font-bold text-sm sm:text-lg md:text-xl text-red-700">Minutes</p>
+                    </div>
+                    <div class="bg-transparent border-2 border-black rounded-md w-24 sm:w-32 md:w-40 h-24 sm:h-32 md:h-52 flex justify-center items-center flex-col gap-3 sm:gap-5 md:gap-10">
+                        <h1 id="seconds" class="text-3xl sm:text-4xl md:text-6xl font-bold">0</h1>
+                        <p class="font-bold text-sm sm:text-lg md:text-xl text-red-700">Seconds</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper');
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+            envelope.classList.toggle('open');
+        });
+    </script>
+    
+    <script src="app.js"></script> 
+</body>
+</html>
